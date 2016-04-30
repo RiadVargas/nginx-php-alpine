@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER Riad Vargas de Oliveira
+MAINTAINER Riad Vargas de Oliveira riad@leafhost.com.br
 
 RUN apk update \
     && apk add bash nginx ca-certificates \
