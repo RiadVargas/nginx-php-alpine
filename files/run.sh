@@ -7,6 +7,12 @@ if [ ! -d /web/htdocs ] ; then
   chown nginx:www-data -R /web/htdocs
 fi
 
+if [ ! -d /web/conf ] ; then
+  mkdir -p /web/conf
+  chown nginx:www-data -R /web/conf
+  cp -r /etc/nginx/* /web/conf
+fi
+
 # start php-fpm
 mkdir -p /web/logs/php-fpm
 php-fpm
@@ -16,4 +22,4 @@ mkdir -p /web/logs/nginx
 mkdir -p /tmp/nginx
 chown nginx /tmp/nginx
 chown nginx:www-data -R /web/htdocs
-nginx
+nginx -c /web/conf
